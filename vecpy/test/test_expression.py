@@ -56,3 +56,13 @@ def test_ccode_expressions():
 
     # Test distributive law
     assert (c * (d_a + d_b)).ccode("i") == "(2.0) * ((a[i]) + (b[i]))"
+
+
+def test_functions():
+    assert vp.sqrt(d_a).ccode("i") == "sqrt(a[i])"
+    assert vp.log(d_a).ccode("i") == "log(a[i])"
+    assert vp.cos(d_a).ccode("i") == "cos(a[i])"
+    assert vp.sin(d_a).ccode("i") == "sin(a[i])"
+    assert vp.exp(d_a).ccode("i") == "exp(a[i])"
+    assert vp.pow(d_a, 2).ccode("i") == "pow(a[i], 2)"
+    assert vp.function("test", d_a, 2).ccode("i") == "test(a[i], 2)"
