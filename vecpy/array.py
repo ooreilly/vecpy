@@ -5,7 +5,7 @@ __count__ = 0
 
 class Array(vp.Expr):
 
-    def __init__(self, host_array, device_array, label=None, const=False, restrict=True):
+    def __init__(self, host_array, device_array, label=None):
         if label is None:
             self.label = _label()
         else:
@@ -13,9 +13,22 @@ class Array(vp.Expr):
         self.type = "Array"
         self.x = device_array
         self.dtype = host_array.dtype
-        self.restrict = restrict
-        self.const = const
+        self.shape = host_array.shape
+        self.__restrict = True
+        self.__const = False
 
+
+    def const(self):
+        self.__const = True
+
+    def noconst(self):
+        self.__const = False
+
+    def restrict(self):
+        self.__restrict = True
+
+    def norestrict(self):
+        self.__restrict = False
 
     def __str__(self):
         return "%s" % (self.label)
@@ -27,8 +40,8 @@ class Array(vp.Expr):
             return "%s[%s]" % (self.label, i)
 
     def cdecl(self):
-        return "%s%s *%s%s" % (vp.const(self.const), vp.to_ctype_str(self.dtype),
-                vp.restrict(self.restrict), self.label)
+        return "%s%s *%s%s" % (vp.const(self.__const), vp.to_ctype_str(self.dtype),
+                vp.restrict(self.__restrict), self.label)
 
 
 def _label():

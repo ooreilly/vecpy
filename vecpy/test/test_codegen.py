@@ -25,25 +25,25 @@ def test_to_ctype_str():
 
 def test_get_arrays():
     arrays = vp.get_arrays(None)
-    assert arrays == set()
+    assert arrays == []
 
     arrays = vp.get_arrays(d_a)
-    assert arrays == {d_a}
+    assert arrays == [d_a]
 
     arrays = vp.get_arrays(d_a + d_b)
-    assert arrays == {d_a, d_b}
+    assert arrays == [d_a, d_b]
 
     arrays = vp.get_arrays(2 + d_a + d_b)
-    assert arrays == {d_a, d_b}
+    assert arrays == [d_a, d_b]
 
     arrays = vp.get_arrays(2 + 2 * d_a + 3 * d_b)
-    assert arrays == {d_a, d_b}
+    assert arrays == [d_a, d_b]
 
     arrays = vp.get_arrays(2 + 2 * d_a + 3 * d_b * d_a)
-    assert arrays == {d_a, d_b}
+    assert arrays == [d_a, d_b]
 
     arrays = vp.get_arrays(2 + 2 * d_a + 3 * d_b * d_a - d_b ** d_a)
-    assert arrays == {d_a, d_b}
+    assert arrays == [d_a, d_b]
 
 
 def test_args():
@@ -57,13 +57,15 @@ def test_get_signature():
     sig = vp.get_signature(arrays)
     assert sig == "float *__restrict__ a, float *__restrict__ b"
 
-    out = vp.Array(b, "d_b", "out", const=True)
-    arrays = vp.get_arrays(d_a + d_b + out)
+    out = vp.Array(b, "d_b", "out")
+    out.const()
+    arrays = vp.get_arrays(out + d_a + d_b)
     sig = vp.get_signature(arrays)
     assert sig == "const float *__restrict__ out, float *__restrict__ a, float *__restrict__ b"
 
-    r = vp.Array(b, "d_r", "r", restrict=False)
-    arrays = vp.get_arrays(d_a + d_b + out + r)
+    r = vp.Array(b, "d_r", "r")
+    r.norestrict()
+    arrays = vp.get_arrays(out + d_a + d_b + out + r)
     sig = vp.get_signature(arrays)
     assert sig == \
             "const float *__restrict__ out, float *__restrict__ a, float *__restrict__ b, float *r"

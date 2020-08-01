@@ -38,7 +38,7 @@ def to_ctype_str(dtype):
 
 
 def get_arrays(expr):
-    arr = set()
+    arr = []
     __get_arrays(expr, arr)
     return arr
 
@@ -54,8 +54,22 @@ def get_signature(arrays):
     sig = []
     for ai in arrays:
         sig.append(ai.cdecl())
-    return ", ".join(sorted(sig))
+    return ", ".join(sig)
 
+def get_size(shape):
+    size = 1
+    for si in shape:
+        size *= si
+    return size
+
+def check_size(arrays):
+    expected = 0
+    for ai in arrays:
+        if expected == 0:
+            expected = ai.shape
+        if ai.shape != expected:
+            return False
+    return True
 
 def const(isconst):
     if isconst == True:
@@ -71,9 +85,10 @@ def restrict(isrestrict):
         return ""
 
 
-def __get_arrays(expr, arrays=set()):
+def __get_arrays(expr, arrays=[]):
     if isinstance(expr, vp.Array):
-        arrays.add(expr)
+        if expr not in arrays:
+            arrays.append(expr)
     elif isinstance(expr, vp.Expr):
         __get_arrays(expr.a, arrays)
         __get_arrays(expr.b, arrays)
