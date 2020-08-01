@@ -19,6 +19,9 @@ class Expr(object):
                                                       
     def __rmul__(a, b):                               
         return BinaryOp(b, a, "Mul", _cmulstr, _pmulstr)
+ 
+    def __neg__(a):
+        return BinaryOp(-1.0, a, "Mul", _cmulstr, _pmulstr)
                                                       
     def __truediv__(a, b):                            
         return BinaryOp(a, b, "Div", _cdivstr, _pdivstr)
@@ -36,7 +39,7 @@ class Expr(object):
         return self.eval("py")
 
     def repr(self):
-        return "%s(%s, %s)" % (self.op_cls, self.a, self.b)
+        return self.eval("repr")
 
     def ccode(self, i=None):
         return self.eval("c", i)
@@ -58,6 +61,8 @@ class Expr(object):
             return self.ccode_fcn(a, b)
         if code == "py":
             return self.pcode_fcn(a, b)
+        if code == "repr":
+            return  "%s(%s, %s)" % (self.op_cls, a, b)     
         else:
             raise NotImplementedError("Code generation for %s is not implemented" % code)
 
@@ -71,31 +76,31 @@ class BinaryOp(Expr):
         self.pcode_fcn = pcode_fcn
 
 def _caddstr(a, b):
-    return "%s + %s" % (a, b)
+    return "(%s) + (%s)" % (a, b)
 
 def _csubstr(a, b):
-    return "%s - %s" % (a, b)
+    return "(%s) - (%s)" % (a, b)
 
 def _cmulstr(a, b):
-    return "%s * %s" % (a, b)
+    return "(%s) * (%s)" % (a, b)
 
 def _cdivstr(a, b):
-    return "%s / %s" % (a, b)
+    return "(%s) / (%s)" % (a, b)
 
 def _cpowstr(a, b):
-    return "pow(%s, %s)" % (a, b)
+    return "pow((%s), (%s))" % (a, b)
 
 def _paddstr(a, b):
-    return "%s + %s" % (a, b)
+    return "(%s) + (%s)" % (a, b)
 
 def _psubstr(a, b):
-    return "%s - %s" % (a, b)
+    return "(%s) - (%s)" % (a, b)
 
 def _pmulstr(a, b):
-    return "%s * %s" % (a, b)
+    return "(%s) * (%s)" % (a, b)
 
 def _pdivstr(a, b):
-    return "%s / %s" % (a, b)
+    return "(%s) / (%s)" % (a, b)
 
 def _ppowstr(a, b):
-    return "%s ** %s" % (a, b)
+    return "(%s) ** (%s)" % (a, b)

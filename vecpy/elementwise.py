@@ -4,12 +4,13 @@ from pycuda.autoinit import context
 import pycuda.driver as cuda
 
 
-def elementwise(out, expr):
+def elementwise(out, expr, deviceID=0):
     arrays = vp.get_arrays(expr)
     for ai in arrays:
         ai.const()
     arrays.append(out)
-    assert arrays != set()
+
+    assert arrays != []
     assert vp.check_size(arrays)
 
     args = vp.get_args(arrays)
@@ -18,11 +19,10 @@ def elementwise(out, expr):
     src = __elementwise_source(signature, out.label, expr, size)
     mod = SourceModule(src)
     mp = cuda.device_attribute.MULTIPROCESSOR_COUNT
-    num_blocks = 8 * cuda.Device(0).get_attribute(mp)
+    num_blocks = 8 * cuda.Device(deviceID).get_attribute(mp)
 
     fcn = mod.get_function("elementwise_kernel")
     fcn(*args, block=(128, 1, 1), grid=(num_blocks, 1, 1))
-    context.synchronize()
 
 
 def __elementwise_source(signature, out, expr, N):

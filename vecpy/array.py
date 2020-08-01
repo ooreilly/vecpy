@@ -33,6 +33,9 @@ class Array(vp.Expr):
     def __str__(self):
         return "%s" % (self.label)
 
+    def repr(self, code, i=None):
+        return self.__str__()
+
     def eval(self, code, i=None):
         if i is None:
             return self.label
