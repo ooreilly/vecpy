@@ -13,8 +13,14 @@ def test_elementwise():
     vb = vp.Array(b, cuda.to_device(b), "b")
     vout = vp.Array(ans, cuda.to_device(ans), "out")
 
-    test_function = lambda a, b : (a**2 + b**2 + (a + b) / 2 + (a / 2 - b / 4) / 2 )**2
-
-    vp.elementwise(vout, test_function(va, vb))
+    # sqrt(a**2 + b**2)
+    test_function = lambda fcn, a, b : fcn(a**2 + b**2)
+    vp.elementwise(vout, test_function(vp.sqrt, va, vb))
     cuda.memcpy_dtoh(ans, vout.x)
-    assert np.allclose(ans, test_function(a, b))
+    assert np.allclose(ans, test_function(np.sqrt, a, b))
+
+    # cos((a+b)*(a-b))
+    test_function = lambda fcn, a, b : fcn((a+b)*(a-b))
+    vp.elementwise(vout, test_function(vp.cos, va, vb))
+    cuda.memcpy_dtoh(ans, vout.x)
+    assert np.allclose(ans, test_function(np.cos, a, b))

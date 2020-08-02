@@ -51,11 +51,14 @@ def test_ccode_expressions():
     assert (d_a + c).ccode("i") == "(a[i]) + (2.0)"
     assert (c - d_a).ccode("i") == "(2.0) - (a[i])"
     assert (d_a - c).ccode("i") == "(a[i]) - (2.0)"
-    assert (d_a ** c).ccode("i") == "pow((a[i]), (2.0))"
+    assert (d_a ** c).ccode("i") == "(a[i]) * (a[i])"
     assert (c ** d_a).ccode("i") == "pow((2.0), (a[i]))"
 
     # Test distributive law
     assert (c * (d_a + d_b)).ccode("i") == "(2.0) * ((a[i]) + (b[i]))"
+
+    # Check that integer power expressions are auto-expanded
+    assert (d_a ** 2 + d_a ** 3).ccode("i") == "((a[i]) * (a[i])) + ((a[i]) * (a[i]) * (a[i]))"
 
 
 def test_functions():

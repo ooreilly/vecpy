@@ -17,12 +17,12 @@ def elementwise(out, expr, deviceID=0):
     signature = vp.get_signature(arrays)
     size = vp.get_size(out.shape)
     src = __elementwise_source(signature, out.label, expr, size)
-    mod = SourceModule(src)
+    options = ["-use_fast_math"]
+    mod = SourceModule(src, options=options)
     mp = cuda.device_attribute.MULTIPROCESSOR_COUNT
     num_blocks = 8 * cuda.Device(deviceID).get_attribute(mp)
-
     fcn = mod.get_function("elementwise_kernel")
-    fcn(*args, block=(128, 1, 1), grid=(num_blocks, 1, 1))
+    fcn(*args, block=(256, 1, 1), grid=(num_blocks, 1, 1))
 
 
 def __elementwise_source(signature, out, expr, N):

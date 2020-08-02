@@ -89,6 +89,8 @@ def __get_arrays(expr, arrays=[]):
     if isinstance(expr, vp.Array):
         if expr not in arrays:
             arrays.append(expr)
+    elif isinstance(expr, vp.Function):
+        __get_arrays(expr.expr, arrays)
     elif isinstance(expr, vp.Expr):
         __get_arrays(expr.a, arrays)
         __get_arrays(expr.b, arrays)

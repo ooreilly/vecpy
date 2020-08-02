@@ -1,4 +1,5 @@
-
+from math import floor
+MAX_EXPONENT = 100
 
 class Expr(object):
 
@@ -88,7 +89,11 @@ def _cdivstr(a, b):
     return "(%s) / (%s)" % (a, b)
 
 def _cpowstr(a, b):
-    return "pow((%s), (%s))" % (a, b)
+    # check if integer power, if so unroll
+    if (isinstance(b, float) or isinstance(b, int) ) and b / floor(b) == 1 and b < MAX_EXPONENT:
+        return " * ".join(["(%s)" % a for x in range(int(b))])
+    else:
+        return "pow((%s), (%s))" % (a, b)
 
 def _paddstr(a, b):
     return "(%s) + (%s)" % (a, b)
