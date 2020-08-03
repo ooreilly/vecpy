@@ -4,6 +4,7 @@ from .expression import Expr
 
 __count__ = 0
 
+
 class Array(Expr):
 
     def __init__(self, host_array, device_array, label=None):
@@ -17,7 +18,6 @@ class Array(Expr):
         self.shape = host_array.shape
         self.__restrict = True
         self.__const = False
-
 
     def const(self):
         self.__const = True
@@ -34,7 +34,7 @@ class Array(Expr):
     def __str__(self):
         return "%s" % (self.label)
 
-    def repr(self, code, i=None):
+    def repr(self, code=None, i=None):
         return self.__str__()
 
     def eval(self, code, i=None):
@@ -44,7 +44,7 @@ class Array(Expr):
             return "%s[%s]" % (self.label, i)
 
     def cdecl(self):
-        return "%s%s *%s%s" % (vp.base.codegen.const(self.__const), 
+        return "%s%s *%s%s" % (vp.base.codegen.const(self.__const),
                                vp.base.codegen.to_ctype_str(self.dtype),
                                vp.base.codegen.restrict(self.__restrict), self.label)
 
@@ -58,4 +58,3 @@ def _label():
 
 def dummy(label: str, shape: tuple = (1,)) -> Array:
     return Array(np.zeros(shape), None, label)
-

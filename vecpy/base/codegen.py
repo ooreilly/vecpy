@@ -1,34 +1,35 @@
 import numpy as np
 import vecpy as vp
 
+
 def to_ctype_str(dtype):
     dtypes = [np.int8,
-              np.int16, 
-              np.int32, 
-              np.int64, 
-              np.uint8, 
-              np.uint16, 
+              np.int16,
+              np.int32,
+              np.int64,
+              np.uint8,
+              np.uint16,
               np.uint32,
               np.uint64,
-              np.intp, 
-              np.uintp,  
-              np.float32,  
-              np.float64, 
-              np.complex64,  
+              np.intp,
+              np.uintp,
+              np.float32,
+              np.float64,
+              np.complex64,
               np.complex128]
-    ctypes = ["int8_t", 
-              "int16_t", 
-              "int32_t", 
-              "int64_t", 
-              "uint8_t", 
+    ctypes = ["int8_t",
+              "int16_t",
+              "int32_t",
+              "int64_t",
+              "uint8_t",
               "uint16_t",
               "uint32_t",
               "uint64_t",
               "intptr_t",
-              "uintptr_t", 
-              "float", 
-              "double", 
-              "float complex", 
+              "uintptr_t",
+              "float",
+              "double",
+              "float complex",
               "double complex"]
 
     for i, dt in enumerate(dtypes):
@@ -56,13 +57,15 @@ def get_signature(arrays):
         sig.append(ai.cdecl())
     return ", ".join(sig)
 
+
 def get_size(shape):
     size = 1
     for si in shape:
         size *= si
     return size
 
-def check_size(arrays):
+
+def isconsistent(arrays):
     expected = 0
     for ai in arrays:
         if expected == 0:
@@ -70,6 +73,7 @@ def check_size(arrays):
         if ai.shape != expected:
             return False
     return True
+
 
 def const(isconst):
     if isconst == True:
@@ -94,3 +98,12 @@ def __get_arrays(expr, arrays=[]):
     elif isinstance(expr, vp.base.Expr):
         __get_arrays(expr.a, arrays)
         __get_arrays(expr.b, arrays)
+
+def pycode(expr, i=None):
+    return expr.pycode(i)
+
+def ccode(expr, i=None):
+    return expr.ccode(i)
+
+def eval(expr, i=None):
+    return expr.eval(i)

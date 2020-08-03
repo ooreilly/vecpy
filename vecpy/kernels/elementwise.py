@@ -2,7 +2,7 @@ import vecpy as vp
 from pycuda.compiler import SourceModule
 from pycuda.autoinit import context
 import pycuda.driver as cuda
-from vecpy.base.codegen import get_arrays, get_args, get_size, check_size, get_signature
+from vecpy.base.codegen import get_arrays, get_args, get_size, isconsistent, get_signature
 
 
 def elementwise(out, expr, deviceID=0):
@@ -12,7 +12,7 @@ def elementwise(out, expr, deviceID=0):
     arrays.append(out)
 
     assert arrays != []
-    assert check_size(arrays)
+    assert isconsistent(arrays)
 
     args = get_args(arrays)
     signature = get_signature(arrays)

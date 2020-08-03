@@ -1,41 +1,42 @@
 from math import floor
 MAX_EXPONENT = 100
 
+
 class Expr(object):
 
     def __add__(a, b):
         return BinaryOp(a, b, "Add", _caddstr, _paddstr)
-                                                      
-    def __radd__(a, b):                               
+
+    def __radd__(a, b):
         return BinaryOp(b, a, "Add", _caddstr, _paddstr)
-                                                      
-    def __sub__(a, b):                                
+
+    def __sub__(a, b):
         return BinaryOp(a, b, "Sub", _csubstr, _psubstr)
-                                                      
-    def __rsub__(b, a):                               
+
+    def __rsub__(b, a):
         return BinaryOp(a, b, "Sub", _csubstr, _psubstr)
-                                                      
-    def __mul__(a, b):                                
+
+    def __mul__(a, b):
         return BinaryOp(a, b, "Mul", _cmulstr, _pmulstr)
-                                                      
-    def __rmul__(a, b):                               
+
+    def __rmul__(a, b):
         return BinaryOp(b, a, "Mul", _cmulstr, _pmulstr)
- 
+
     def __neg__(a):
         return BinaryOp(-1.0, a, "Mul", _cmulstr, _pmulstr)
-                                                      
-    def __truediv__(a, b):                            
+
+    def __truediv__(a, b):
         return BinaryOp(a, b, "Div", _cdivstr, _pdivstr)
-                                                      
-    def __rtruediv__(a, b):                           
+
+    def __rtruediv__(a, b):
         return BinaryOp(b, a, "Div", _cdivstr, _pdivstr)
-                                                      
-    def __pow__(a, b):                                
+
+    def __pow__(a, b):
         return BinaryOp(a, b, "Pow", _cpowstr, _ppowstr)
-                                                      
-    def __rpow__(a, b):                               
+
+    def __rpow__(a, b):
         return BinaryOp(b, a, "Pow", _cpowstr, _ppowstr)
-    
+
     def __str__(self):
         return self.eval("py")
 
@@ -63,9 +64,10 @@ class Expr(object):
         if code == "py":
             return self.pcode_fcn(a, b)
         if code == "repr":
-            return  "%s(%s, %s)" % (self.op_cls, a, b)     
+            return "%s(%s, %s)" % (self.op_cls, a, b)
         else:
-            raise NotImplementedError("Code generation for %s is not implemented" % code)
+            raise NotImplementedError(
+                "Code generation for %s is not implemented" % code)
 
 
 class BinaryOp(Expr):
@@ -76,36 +78,46 @@ class BinaryOp(Expr):
         self.ccode_fcn = ccode_fcn
         self.pcode_fcn = pcode_fcn
 
+
 def _caddstr(a, b):
     return "(%s) + (%s)" % (a, b)
+
 
 def _csubstr(a, b):
     return "(%s) - (%s)" % (a, b)
 
+
 def _cmulstr(a, b):
     return "(%s) * (%s)" % (a, b)
+
 
 def _cdivstr(a, b):
     return "(%s) / (%s)" % (a, b)
 
+
 def _cpowstr(a, b):
     # check if integer power, if so unroll
-    if (isinstance(b, float) or isinstance(b, int) ) and b / floor(b) == 1 and b < MAX_EXPONENT:
+    if (isinstance(b, float) or isinstance(b, int)) and b / floor(b) == 1 and b < MAX_EXPONENT:
         return " * ".join(["(%s)" % a for x in range(int(b))])
     else:
         return "pow((%s), (%s))" % (a, b)
 
+
 def _paddstr(a, b):
     return "(%s) + (%s)" % (a, b)
+
 
 def _psubstr(a, b):
     return "(%s) - (%s)" % (a, b)
 
+
 def _pmulstr(a, b):
     return "(%s) * (%s)" % (a, b)
 
+
 def _pdivstr(a, b):
     return "(%s) / (%s)" % (a, b)
+
 
 def _ppowstr(a, b):
     return "(%s) ** (%s)" % (a, b)

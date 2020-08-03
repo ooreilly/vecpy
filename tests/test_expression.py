@@ -1,5 +1,6 @@
 import numpy as np
 import vecpy as vp
+import pytest
 
 a = np.random.randn(100).astype(np.float32)
 b = np.random.randn(100).astype(np.float32)
@@ -19,6 +20,12 @@ def test_str_expressions():
     assert str(d_a / d_b) == "(a) / (b)"
     assert str(d_a ** d_b) == "(a) ** (b)"
     assert str(-2.0 * d_a) == "(-2.0) * (a)"
+    assert str(-2.0 / d_a) == "(-2.0) / (a)"
+
+def test_codegens():
+    assert vp.base.codegen.ccode(d_a + d_b) == "(a) + (b)"
+    assert vp.base.codegen.pycode(d_a + d_b) == "(a) + (b)"
+    with pytest.raises(NotImplementedError) : vp.base.codegen.eval(d_a + d_b, "?")
 
 def test_ccode_expressions():
     assert (d_a + d_b).ccode() == "(a) + (b)"

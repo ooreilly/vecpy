@@ -3,19 +3,19 @@ import numpy as np
 from pycuda.compiler import SourceModule
 from pycuda.autoinit import context
 import pycuda.driver as cuda
-from vecpy.base.codegen import get_arrays, check_size, get_args, get_signature, get_size
+from vecpy.base.codegen import get_arrays, isconsistent, get_args, get_signature, get_size
 
 __device_sum_temp = 0
 
+
 def sum(expr, deviceID=0):
-    
+
     arrays = get_arrays(expr)
     for ai in arrays:
         ai.const()
 
-    assert arrays != []
-    assert check_size(arrays)
-    
+    assert isconsistent(arrays)
+
     result = np.zeros((1,))
     vresult = vp.base.Array(result, cuda.to_device(result), "temp")
     arrays.append(vresult)
@@ -23,10 +23,13 @@ def sum(expr, deviceID=0):
     args = get_args(arrays)
     signature = get_signature(arrays)
     N = get_size(arrays[0].shape)
-    mp = cuda.Device(deviceID).get_attribute(cuda.device_attribute.MULTIPROCESSOR_COUNT)
-    num_threads = cuda.Device(deviceID).get_attribute(cuda.device_attribute.MAX_THREADS_PER_BLOCK)
+    mp = cuda.Device(deviceID).get_attribute(
+        cuda.device_attribute.MULTIPROCESSOR_COUNT)
+    num_threads = cuda.Device(deviceID).get_attribute(
+        cuda.device_attribute.MAX_THREADS_PER_BLOCK)
     blocks_per_SM = 2
-    num_blocks = min(blocks_per_SM * mp, int((N - 1) / (blocks_per_SM * num_threads) +1))
+    num_blocks = min(blocks_per_SM * mp, int((N - 1) /
+                                             (blocks_per_SM * num_threads) + 1))
 
     src = __sum_source(signature, expr, N)
     options = ["-use_fast_math"]
