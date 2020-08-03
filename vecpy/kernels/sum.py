@@ -3,25 +3,26 @@ import numpy as np
 from pycuda.compiler import SourceModule
 from pycuda.autoinit import context
 import pycuda.driver as cuda
+from vecpy.base.codegen import get_arrays, check_size, get_args, get_signature, get_size
 
 __device_sum_temp = 0
 
 def sum(expr, deviceID=0):
     
-    arrays = vp.get_arrays(expr)
+    arrays = get_arrays(expr)
     for ai in arrays:
         ai.const()
 
     assert arrays != []
-    assert vp.check_size(arrays)
+    assert check_size(arrays)
     
     result = np.zeros((1,))
-    vresult = vp.Array(result, cuda.to_device(result), "temp")
+    vresult = vp.base.Array(result, cuda.to_device(result), "temp")
     arrays.append(vresult)
 
-    args = vp.get_args(arrays)
-    signature = vp.get_signature(arrays)
-    N = vp.get_size(arrays[0].shape)
+    args = get_args(arrays)
+    signature = get_signature(arrays)
+    N = get_size(arrays[0].shape)
     mp = cuda.Device(deviceID).get_attribute(cuda.device_attribute.MULTIPROCESSOR_COUNT)
     num_threads = cuda.Device(deviceID).get_attribute(cuda.device_attribute.MAX_THREADS_PER_BLOCK)
     blocks_per_SM = 2

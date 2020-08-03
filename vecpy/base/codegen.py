@@ -86,11 +86,11 @@ def restrict(isrestrict):
 
 
 def __get_arrays(expr, arrays=[]):
-    if isinstance(expr, vp.Array):
+    if isinstance(expr, vp.base.array.Array):
         if expr not in arrays:
             arrays.append(expr)
-    elif isinstance(expr, vp.Function):
+    elif isinstance(expr, vp.base.functions.Function):
         __get_arrays(expr.expr, arrays)
-    elif isinstance(expr, vp.Expr):
+    elif isinstance(expr, vp.base.Expr):
         __get_arrays(expr.a, arrays)
         __get_arrays(expr.b, arrays)

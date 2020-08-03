@@ -3,8 +3,8 @@ import vecpy as vp
 
 a = np.random.randn(100).astype(np.float32)
 b = np.random.randn(100).astype(np.float32)
-d_a = vp.Array(a, None, "a")
-d_b = vp.Array(b, None, "b")
+d_a = vp.base.Array(a, None, "a")
+d_b = vp.base.Array(b, None, "b")
 
 def test_repr():
     assert (d_a + d_b).repr() == "Add(a, b)"

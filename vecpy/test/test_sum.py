@@ -8,8 +8,8 @@ b = np.random.randn(int(1e6))
 ans = np.zeros_like(a)
 
 def test_sum():
-    va = vp.Array(a, cuda.to_device(a))
-    vb = vp.Array(b, cuda.to_device(b))
+    va = vp.copy(a)
+    vb = vp.copy(b)
 
     # sum(sqrt(a**2 + b**2))
     test_function = lambda fcn, a, b : fcn(a**2 + b**2)

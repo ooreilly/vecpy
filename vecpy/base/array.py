@@ -1,9 +1,10 @@
 import vecpy as vp
-import pycuda.driver as cuda
+import numpy as np
+from .expression import Expr
 
 __count__ = 0
 
-class Array(vp.Expr):
+class Array(Expr):
 
     def __init__(self, host_array, device_array, label=None):
         if label is None:
@@ -43,8 +44,9 @@ class Array(vp.Expr):
             return "%s[%s]" % (self.label, i)
 
     def cdecl(self):
-        return "%s%s *%s%s" % (vp.const(self.__const), vp.to_ctype_str(self.dtype),
-                vp.restrict(self.__restrict), self.label)
+        return "%s%s *%s%s" % (vp.base.codegen.const(self.__const), 
+                               vp.base.codegen.to_ctype_str(self.dtype),
+                               vp.base.codegen.restrict(self.__restrict), self.label)
 
 
 def _label():
@@ -52,4 +54,8 @@ def _label():
     out = "v%d" % __count__
     __count__ += 1
     return out
+
+
+def dummy(label: str, shape: tuple = (1,)) -> Array:
+    return Array(np.zeros(shape), None, label)
 

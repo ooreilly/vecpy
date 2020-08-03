@@ -2,20 +2,21 @@ import vecpy as vp
 from pycuda.compiler import SourceModule
 from pycuda.autoinit import context
 import pycuda.driver as cuda
+from vecpy.base.codegen import get_arrays, get_args, get_size, check_size, get_signature
 
 
 def elementwise(out, expr, deviceID=0):
-    arrays = vp.get_arrays(expr)
+    arrays = get_arrays(expr)
     for ai in arrays:
         ai.const()
     arrays.append(out)
 
     assert arrays != []
-    assert vp.check_size(arrays)
+    assert check_size(arrays)
 
-    args = vp.get_args(arrays)
-    signature = vp.get_signature(arrays)
-    size = vp.get_size(out.shape)
+    args = get_args(arrays)
+    signature = get_signature(arrays)
+    size = get_size(out.shape)
     src = __elementwise_source(signature, out.label, expr, size)
     options = ["-use_fast_math"]
     mod = SourceModule(src, options=options)

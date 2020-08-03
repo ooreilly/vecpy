@@ -2,7 +2,7 @@ import numpy as np
 import vecpy as vp
 
 a = np.random.randn(100).astype(np.float32)
-va = vp.Array(a, None, "a")
+va = vp.base.array.dummy("a")
 
 def test_functions():
     assert str(vp.function("test", va, 2)) == "test(a, 2)"

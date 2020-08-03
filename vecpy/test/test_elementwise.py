@@ -9,9 +9,9 @@ b = np.random.randn(int(1e6))
 ans = np.zeros_like(a)
 
 def test_elementwise():
-    va = vp.Array(a, cuda.to_device(a), "a")
-    vb = vp.Array(b, cuda.to_device(b), "b")
-    vout = vp.Array(ans, cuda.to_device(ans), "out")
+    va = vp.copy(a)
+    vb = vp.copy(b)
+    vout = vp.copy(ans)
 
     # sqrt(a**2 + b**2)
     test_function = lambda fcn, a, b : fcn(a**2 + b**2)
