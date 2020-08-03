@@ -35,7 +35,7 @@ def sum(expr, deviceID=0):
     fcn = mod.get_function("sum_kernel")
     fcn(*args, block=(num_threads, 1, 1), grid=(num_blocks, 1, 1))
     cuda.memcpy_dtoh(result, vresult.x)
-    return result
+    return result[0]
 
 
 def __sum_source(signature, expr, N):
