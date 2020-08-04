@@ -17,16 +17,17 @@ def elementwise(out: vecpy.base.Array, expr: vecpy.base.Expr, deviceID: int=0):
 
         >>> 
         >>> import numpy as np
-        >>> x = np.arange((10,))
+        >>> x = np.arange(10)
         >>> # Copy to GPU
-        >>> vx = vecpy.copy(x)
+        >>> vx = vecpy.to_vecpy(x)
         >>> # Zero-intialize output array
-        >>> vy = vecpy.zero_like(x)
+        >>> vy = vecpy.zeros_like(x)
         >>> # Compute x^2 elementwise and store result in vy
-        >>> vecpy.elementwise(vy, x ** 2)
+        >>> vecpy.elementwise(vy, vx ** 2)
         >>> # Copy result to CPU
-        >>> y = vecpy.copy(vy)
+        >>> y = vecpy.to_numpy(vy)
         >>> y
+        array([ 0,  1,  4,  9, 16, 25, 36, 49, 64, 81])
 
     """
     vecpy.kernels.elementwise(out, expr, deviceID)
