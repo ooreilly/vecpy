@@ -9,8 +9,8 @@ ans = np.zeros_like(a)
 
 
 def test_sum():
-    va = vp.copy(a)
-    vb = vp.copy(b)
+    va = vp.to_vecpy(a)
+    vb = vp.to_vecpy(b)
 
     # sum(sqrt(a**2 + b**2))
     def test_function(fcn, a, b): return fcn(a**2 + b**2)

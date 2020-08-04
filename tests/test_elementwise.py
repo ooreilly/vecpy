@@ -10,9 +10,9 @@ ans = np.zeros_like(a)
 
 
 def test_elementwise():
-    va = vp.copy(a)
-    vb = vp.copy(b)
-    vout = vp.copy(ans)
+    va = vp.to_vecpy(a)
+    vb = vp.to_vecpy(b)
+    vout = vp.to_vecpy(ans)
 
     # sqrt(a**2 + b**2)
     def test_function(fcn, a, b): return fcn(a**2 + b**2)

@@ -8,15 +8,13 @@ import pytest
 def test_array():
 
     a = np.ones((100,))
-    va = vp.copy(a)
-    b = a.copy()
-    cuda.memcpy_dtoh(b, va.x)
+    va = vp.to_vecpy(a)
+    b = vp.to_numpy(va)
     assert np.all(np.equal(a, b))
 
     a = np.zeros((100,))
     va = vp.zeros_like(a)
-    b = a.copy()
-    cuda.memcpy_dtoh(b, va.x)
+    b = vp.to_numpy(va)
     assert np.all(np.equal(a, b))
 
     a = np.ones((100,))
