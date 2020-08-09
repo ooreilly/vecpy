@@ -9,7 +9,7 @@ def elementwise(out: vecpy.base.Array, expr: vecpy.base.Expr, deviceID: int=0):
     Args:
         out: output argument to assign to.
         expr: VecPy expression to compute.
-        deviceID: device ID to use.
+        deviceID(optional): device ID to use.
 
     Example:
         
@@ -20,7 +20,7 @@ def elementwise(out: vecpy.base.Array, expr: vecpy.base.Expr, deviceID: int=0):
         >>> x = np.arange(10)
         >>> # Copy to GPU
         >>> vx = vecpy.to_vecpy(x)
-        >>> # Zero-intialize output array
+        >>> # Zero-initialize output array
         >>> vy = vecpy.zeros_like(x)
         >>> # Compute x^2 elementwise and store result in vy
         >>> vecpy.elementwise(vy, vx ** 2)
