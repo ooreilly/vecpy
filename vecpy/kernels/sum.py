@@ -59,10 +59,6 @@ def __sum_source(signature, expr, N):
                 int lane = threadIdx.x %% warpSize;
                 int numWarps = numThreads / warpSize;
 
-                if (lane == 0 && warpID == 0 && blockIdx.x == 0) {
-                        temp[0] = 0.0;
-                }
-
                 double partialSum = 0.0;
                 __shared__ double sPartialSum[1024];
                 int end = idx + numValuesPerBlock;
