@@ -24,8 +24,16 @@ def test_sum():
     np_ans = np.sum(test_function(np.cos, a, b))
     assert np.isclose(vp_ans, np_ans)
 
+    # Sum of exponential functions
+    def test_function(fcn, a, b): return fcn(a, b)
+    print(test_function(vp.pow, va, va).ccode("i"))
+    vp_ans = vp.sum(test_function(vp.pow, 0.2, vb))
+    np_ans = np.sum(test_function(lambda u, v : u ** v, 0.2, b))
+    assert np.isclose(vp_ans, np_ans)
+
     # scalar, expected sum = 1.0
     def test_function(): return 1.0
     vp_ans = vp.sum(test_function())
     np_ans = np.sum(test_function())
     assert np.isclose(vp_ans, np_ans)
+

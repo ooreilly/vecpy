@@ -95,15 +95,34 @@ def __get_arrays(expr, arrays=[]):
             arrays.append(expr)
     elif isinstance(expr, vp.base.functions.Function):
         __get_arrays(expr.expr, arrays)
+        for arg in expr.args:
+            __get_arrays(arg, arrays)
     elif isinstance(expr, vp.base.Expr):
         __get_arrays(expr.a, arrays)
         __get_arrays(expr.b, arrays)
 
+
 def pycode(expr, i=None):
     return expr.pycode(i)
+
 
 def ccode(expr, i=None):
     return expr.ccode(i)
 
+
 def eval(expr, i=None):
     return expr.eval(i)
+
+
+def vecpify(arg):
+    if isinstance(arg, vp.base.Expr):
+        return arg
+    else:
+        # Check if array or scalar
+        try:
+            arg.shape
+        except:
+            return vp.base.Scalar(arg)
+
+        raise ValueError(
+            "Non-VecPy Array detected in expression. Convert array first using Array()")

@@ -80,3 +80,9 @@ def test_check_size():
 
     assert isconsistent([va, vb]) == True
     assert isconsistent([va, vc]) == False
+
+
+def test_vecpify():
+
+    assert isinstance(vp.base.codegen.vecpify(0.2), vp.base.Scalar)
+    with pt.raises(ValueError) : vp.base.codegen.vecpify(np.zeros(2))

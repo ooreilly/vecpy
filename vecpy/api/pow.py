@@ -1,7 +1,7 @@
 import vecpy
 
 
-def pow(expr: vecpy.base.Expr, exponent: float):
+def pow(expr: vecpy.base.Expr, exponent: vecpy.base.Expr):
     """
     Apply the `pow` function to a VecPy Expression.
 

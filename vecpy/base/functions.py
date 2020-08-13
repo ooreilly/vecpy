@@ -13,5 +13,7 @@ class Function(Expr):
         if self.args == ():
             args_str = ""
         else:
-            args_str = ", " +  ", ".join(["%s" % arg for arg in self.args])
-        return "%s(%s%s)" % (self.label, self.expr.eval(code, i), args_str) 
+            args_str = ", " + \
+                ", ".join(["%s" % vp.base.codegen.vecpify(
+                    arg).eval(code, i) for arg in self.args])
+        return "%s(%s%s)" % (self.label, vp.base.codegen.vecpify(self.expr).eval(code, i), args_str)
