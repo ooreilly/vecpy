@@ -14,26 +14,26 @@ def test_sum():
 
     # sum(sqrt(a**2 + b**2))
     def test_function(fcn, a, b): return fcn(a**2 + b**2)
-    vp_ans = vp.sum(test_function(vp.sqrt, va, vb))
+    vp_ans = vp.sum(test_function(vp.sqrt, va, vb)).get()
     np_ans = np.sum(test_function(np.sqrt, a, b))
     assert np.isclose(vp_ans, np_ans)
 
     # sum(cos((a+b)*(a-b)))
     def test_function(fcn, a, b): return fcn((a+b)*(a-b))
-    vp_ans = vp.sum(test_function(vp.cos, va, vb))
+    vp_ans = vp.sum(test_function(vp.cos, va, vb)).get()
     np_ans = np.sum(test_function(np.cos, a, b))
     assert np.isclose(vp_ans, np_ans)
 
     # Sum of exponential functions
     def test_function(fcn, a, b): return fcn(a, b)
     print(test_function(vp.pow, va, va).ccode("i"))
-    vp_ans = vp.sum(test_function(vp.pow, 0.2, vb))
+    vp_ans = vp.sum(test_function(vp.pow, 0.2, vb)).get()
     np_ans = np.sum(test_function(lambda u, v : u ** v, 0.2, b))
     assert np.isclose(vp_ans, np_ans)
 
     # scalar, expected sum = 1.0
     def test_function(): return 1.0
-    vp_ans = vp.sum(test_function())
+    vp_ans = vp.sum(test_function()).get()
     np_ans = np.sum(test_function())
     assert np.isclose(vp_ans, np_ans)
 

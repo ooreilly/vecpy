@@ -1,5 +1,6 @@
 import vecpy as vp
 import numpy as np
+import pycuda.driver as cuda
 from .expression import Expr
 
 __count__ = 0
@@ -16,6 +17,7 @@ class Array(Expr):
         self.x = device_array
         self.dtype = host_array.dtype
         self.shape = host_array.shape
+        self.nbytes = host_array.nbytes
         self.__restrict = True
         self.__const = False
 
@@ -36,6 +38,21 @@ class Array(Expr):
 
     def repr(self, i=None):
         return self.type
+
+    def get(self):
+        out = np.ndarray(self.shape, self.dtype)
+        cuda.memcpy_dtoh(out, self.x)
+        return out
+
+    def copy(self):
+        tmp = np.ndarray((1,))
+        out = Array(tmp, None)
+        out.nbytes = self.nbytes
+        out.x = cuda.mem_alloc(self.nbytes)
+        cuda.memcpy_dtod(out.x, self.x, out.nbytes)
+        out.dtype = self.dtype
+        out.shape = self.shape
+        return out
 
     def eval(self, code, i=None):
         if code == "repr":

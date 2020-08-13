@@ -35,8 +35,7 @@ def sum(expr, deviceID=0, options=["--use_fast_math"]):
     fcn = vp.base.cache.cache(expr, "sum_kernel", source, options)
 
     fcn(*args, N, block=(num_threads, 1, 1), grid=(num_blocks, 1, 1))
-    cuda.memcpy_dtoh(result, vresult.x)
-    return result[0]
+    return vp.base.Array(result, vresult.x)
 
 
 def __sum_source(signature, expr):

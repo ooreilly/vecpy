@@ -16,18 +16,18 @@ def test_elementwise():
 
     # sqrt(a**2 + b**2)
     def test_function(fcn, a, b): return fcn(a**2 + b**2)
-    vp.elementwise(vout, test_function(vp.sqrt, va, vb))
+    vout = vp.elementwise(test_function(vp.sqrt, va, vb))
     cuda.memcpy_dtoh(ans, vout.x)
     assert np.allclose(ans, test_function(np.sqrt, a, b))
 
     # cos((a+b)*(a-b))
     def test_function(fcn, a, b): return fcn((a+b)*(a-b))
-    vp.elementwise(vout, test_function(vp.cos, va, vb))
+    vout = vp.elementwise(test_function(vp.cos, va, vb))
     cuda.memcpy_dtoh(ans, vout.x)
     assert np.allclose(ans, test_function(np.cos, a, b))
 
     # scalar
     def test_function(): return 1.0
-    vp.elementwise(vout, test_function())
+    vout = vp.elementwise(test_function(), out=vout)
     cuda.memcpy_dtoh(ans, vout.x)
     assert np.allclose(ans, test_function())
