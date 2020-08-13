@@ -8,10 +8,10 @@ d_a = vp.base.Array(a, None, "a")
 d_b = vp.base.Array(b, None, "b")
 
 def test_repr():
-    assert (d_a + d_b).repr() == "Add(a, b)"
-    assert (d_a * d_b).repr() == "Mul(a, b)"
-    assert (d_a - d_b).repr() == "Sub(a, b)"
-    assert (d_a / d_b).repr() == "Div(a, b)"
+    assert (d_a + d_b).repr() == "Add(Array, Array)"
+    assert (d_a * d_b).repr() == "Mul(Array, Array)"
+    assert (d_a - d_b).repr() == "Sub(Array, Array)"
+    assert (d_a / d_b).repr() == "Div(Array, Array)"
 
 def test_str_expressions():
     assert str(d_a + d_b) == "(a) + (b)"

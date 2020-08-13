@@ -34,10 +34,12 @@ class Array(Expr):
     def __str__(self):
         return "%s" % (self.label)
 
-    def repr(self, code=None, i=None):
-        return self.__str__()
+    def repr(self, i=None):
+        return self.type
 
     def eval(self, code, i=None):
+        if code == "repr":
+            return self.type
         if i is None:
             return self.label
         else:

@@ -12,4 +12,4 @@ def test_array():
     a.restrict()
     assert vp.base.codegen.get_signature([a]) == "const double *__restrict__ a"
     assert str(a) == "a"
-    assert a.repr() == "a"
+    assert a.repr() == "Array"

@@ -12,3 +12,5 @@ from . import functions
 from . functions import Function
 
 from . import codegen
+
+from . import cache

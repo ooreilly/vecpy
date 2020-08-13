@@ -1,5 +1,6 @@
 import numpy as np
 import vecpy as vp
+import hashlib
 
 
 def to_ctype_str(dtype):

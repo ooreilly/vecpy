@@ -8,7 +8,7 @@ from vecpy.base.codegen import get_arrays, isconsistent, get_args, get_signature
 __device_sum_temp = 0
 
 
-def sum(expr, deviceID=0):
+def sum(expr, deviceID=0, options=["--use_fast_math"]):
 
     arrays = get_arrays(expr)
     for ai in arrays:
@@ -22,7 +22,7 @@ def sum(expr, deviceID=0):
 
     args = get_args(arrays)
     signature = get_signature(arrays)
-    N = get_size(arrays[0].shape)
+    N = np.int64(get_size(arrays[0].shape))
     mp = cuda.Device(deviceID).get_attribute(
         cuda.device_attribute.MULTIPROCESSOR_COUNT)
     num_threads = cuda.Device(deviceID).get_attribute(
@@ -31,26 +31,23 @@ def sum(expr, deviceID=0):
     num_blocks = min(blocks_per_SM * mp, int((N - 1) /
                                              (blocks_per_SM * num_threads) + 1))
 
-    src = __sum_source(signature, expr, N)
-    options = ["-use_fast_math"]
-    mod = SourceModule(src, options=options)
+    source = lambda: __sum_source(signature, expr)
+    fcn = vp.base.cache.cache(expr, "sum_kernel", source, options)
 
-    fcn = mod.get_function("sum_kernel")
-    fcn(*args, block=(num_threads, 1, 1), grid=(num_blocks, 1, 1))
+    fcn(*args, N, block=(num_threads, 1, 1), grid=(num_blocks, 1, 1))
     cuda.memcpy_dtoh(result, vresult.x)
     return result[0]
 
 
-def __sum_source(signature, expr, N):
+def __sum_source(signature, expr):
     try:
         code = expr.ccode("i")
     except:
         code = str(expr)
     src = """
-            __global__ void sum_kernel(%s) {
+            __global__ void sum_kernel(%s, const int N) {
 
                 const int warpSize = 32;
-                const int N = %s;
                 int numThreads = blockDim.x;
                 int numValuesPerBlockPerThread = (N - 1) / gridDim.x / numThreads + 1;
                 int numValuesPerBlock = numValuesPerBlockPerThread * numThreads;
@@ -84,5 +81,5 @@ def __sum_source(signature, expr, N):
                         double val = atomicAdd(temp, blockSum);
                 }
         } 
-    """ % (signature, N, code)
+    """ % (signature, code)
     return src
