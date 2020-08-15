@@ -15,7 +15,7 @@ The example below demonstrates that VecPy can be an order of magnitude or more f
 alternatives for large data
 sets (millions of elements).
 
-![](benchmarks/plots/trig_float32.svg)
+![](benchmarks/plots/sum_float32.svg)
 
 See the [benchmarks]() page for further details, and additional performance tests.
 
