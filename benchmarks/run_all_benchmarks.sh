@@ -15,8 +15,7 @@ do
         do
                 for lib in numpy numexpr cupy skcuda vecpy; 
                 do
-                       make init benchmark test=${test} outputdir=${dir}/${benchmark}_${dtype}
-                       dtype=${dtype} lib=$lib benchmark=$benchmark
+                       make init benchmark test=${test} outputdir=${dir}/${benchmark}_${dtype} dtype=${dtype} lib=$lib benchmark=$benchmark
                 done
         done
 done

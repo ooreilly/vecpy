@@ -1,1 +1,1 @@
-float32 scikit-cuda
+float64 scikit-cuda

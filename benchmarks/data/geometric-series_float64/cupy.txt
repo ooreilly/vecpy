@@ -1,201 +1,201 @@
-float32 CuPy
-100        0.7754   ms 0.0001   G Elements/s
-105        0.0575   ms 0.0018   G Elements/s
-112        0.0575   ms 0.0019   G Elements/s
-118        0.0577   ms 0.0020   G Elements/s
-126        0.0575   ms 0.0022   G Elements/s
-133        0.0584   ms 0.0023   G Elements/s
-141        0.0576   ms 0.0024   G Elements/s
-149        0.0574   ms 0.0026   G Elements/s
-158        0.0575   ms 0.0027   G Elements/s
-168        0.0575   ms 0.0029   G Elements/s
-178        0.0575   ms 0.0031   G Elements/s
-188        0.0624   ms 0.0030   G Elements/s
-200        0.0576   ms 0.0035   G Elements/s
-212        0.0580   ms 0.0037   G Elements/s
-224        0.0574   ms 0.0039   G Elements/s
-238        0.0574   ms 0.0041   G Elements/s
-252        0.0577   ms 0.0044   G Elements/s
-267        0.0581   ms 0.0046   G Elements/s
-283        0.0582   ms 0.0049   G Elements/s
-300        0.0575   ms 0.0052   G Elements/s
-318        0.0577   ms 0.0055   G Elements/s
-337        0.0583   ms 0.0058   G Elements/s
-357        0.0581   ms 0.0061   G Elements/s
-378        0.0577   ms 0.0066   G Elements/s
-400        0.0578   ms 0.0069   G Elements/s
-424        0.0588   ms 0.0072   G Elements/s
-450        0.0576   ms 0.0078   G Elements/s
-476        0.0575   ms 0.0083   G Elements/s
-505        0.0576   ms 0.0088   G Elements/s
-535        0.0584   ms 0.0092   G Elements/s
-567        0.0574   ms 0.0099   G Elements/s
-601        0.0576   ms 0.0104   G Elements/s
-636        0.0581   ms 0.0109   G Elements/s
-674        0.0578   ms 0.0117   G Elements/s
-714        0.0581   ms 0.0123   G Elements/s
-757        0.0577   ms 0.0131   G Elements/s
-802        0.0581   ms 0.0138   G Elements/s
-850        0.0581   ms 0.0146   G Elements/s
-901        0.0578   ms 0.0156   G Elements/s
-954        0.0609   ms 0.0157   G Elements/s
-1011       0.0579   ms 0.0175   G Elements/s
-1071       0.0580   ms 0.0185   G Elements/s
-1135       0.0578   ms 0.0196   G Elements/s
-1203       0.0722   ms 0.0167   G Elements/s
-1275       0.0744   ms 0.0171   G Elements/s
-1350       0.0586   ms 0.0230   G Elements/s
-1431       0.0580   ms 0.0247   G Elements/s
-1516       0.0580   ms 0.0261   G Elements/s
-1607       0.0662   ms 0.0243   G Elements/s
-1702       0.0634   ms 0.0268   G Elements/s
-1804       0.0577   ms 0.0313   G Elements/s
-1911       0.0581   ms 0.0329   G Elements/s
-2025       0.0589   ms 0.0344   G Elements/s
-2146       0.0578   ms 0.0371   G Elements/s
-2273       0.0585   ms 0.0388   G Elements/s
-2409       0.0577   ms 0.0417   G Elements/s
-2552       0.0578   ms 0.0441   G Elements/s
-2704       0.0579   ms 0.0467   G Elements/s
-2866       0.0581   ms 0.0494   G Elements/s
-3036       0.0578   ms 0.0525   G Elements/s
-3217       0.0586   ms 0.0549   G Elements/s
-3409       0.0580   ms 0.0587   G Elements/s
-3612       0.0579   ms 0.0624   G Elements/s
-3827       0.0581   ms 0.0658   G Elements/s
-4055       0.0583   ms 0.0696   G Elements/s
-4297       0.0576   ms 0.0746   G Elements/s
-4552       0.0578   ms 0.0788   G Elements/s
-4824       0.0582   ms 0.0828   G Elements/s
-5111       0.0576   ms 0.0887   G Elements/s
-5415       0.0585   ms 0.0925   G Elements/s
-5738       0.0582   ms 0.0986   G Elements/s
-6080       0.0586   ms 0.1037   G Elements/s
-6442       0.0580   ms 0.1112   G Elements/s
-6826       0.0578   ms 0.1182   G Elements/s
-7232       0.0577   ms 0.1253   G Elements/s
-7663       0.0583   ms 0.1314   G Elements/s
-8119       0.0580   ms 0.1400   G Elements/s
-8603       0.0574   ms 0.1498   G Elements/s
-9115       0.0576   ms 0.1582   G Elements/s
-9658       0.0579   ms 0.1667   G Elements/s
-10234      0.0579   ms 0.1766   G Elements/s
-10843      0.0581   ms 0.1867   G Elements/s
-11489      0.0581   ms 0.1976   G Elements/s
-12173      0.0575   ms 0.2116   G Elements/s
-12898      0.0582   ms 0.2218   G Elements/s
-13667      0.0581   ms 0.2351   G Elements/s
-14481      0.0591   ms 0.2450   G Elements/s
-15343      0.0578   ms 0.2654   G Elements/s
-16257      0.0827   ms 0.1966   G Elements/s
-17225      0.0585   ms 0.2942   G Elements/s
-18251      0.0593   ms 0.3076   G Elements/s
-19338      0.0589   ms 0.3281   G Elements/s
-20490      0.0585   ms 0.3505   G Elements/s
-21711      0.0585   ms 0.3710   G Elements/s
-23004      0.0585   ms 0.3933   G Elements/s
-24374      0.0617   ms 0.3950   G Elements/s
-25826      0.0670   ms 0.3857   G Elements/s
-27364      0.0669   ms 0.4093   G Elements/s
-28994      0.0675   ms 0.4298   G Elements/s
-30721      0.0675   ms 0.4554   G Elements/s
-32550      0.0680   ms 0.4786   G Elements/s
-34489      0.0677   ms 0.5091   G Elements/s
-36543      0.0690   ms 0.5296   G Elements/s
-38720      0.0693   ms 0.5587   G Elements/s
-41026      0.0679   ms 0.6038   G Elements/s
-43470      0.0683   ms 0.6363   G Elements/s
-46059      0.0733   ms 0.6284   G Elements/s
-48802      0.0762   ms 0.6408   G Elements/s
-51709      0.0758   ms 0.6821   G Elements/s
-54789      0.0766   ms 0.7154   G Elements/s
-58052      0.0762   ms 0.7623   G Elements/s
-61509      0.0763   ms 0.8066   G Elements/s
-65173      0.0798   ms 0.8167   G Elements/s
-69055      0.0859   ms 0.8043   G Elements/s
-73168      0.0847   ms 0.8635   G Elements/s
-77525      0.0858   ms 0.9038   G Elements/s
-82143      0.0851   ms 0.9649   G Elements/s
-87035      0.0913   ms 0.9537   G Elements/s
-92219      0.0939   ms 0.9819   G Elements/s
-97712      0.0931   ms 1.0494   G Elements/s
-103532     0.0927   ms 1.1169   G Elements/s
-109698     0.1011   ms 1.0849   G Elements/s
-116232     0.1013   ms 1.1473   G Elements/s
-123155     0.1021   ms 1.2060   G Elements/s
-130490     0.1095   ms 1.1921   G Elements/s
-138262     0.1096   ms 1.2612   G Elements/s
-146497     0.1145   ms 1.2790   G Elements/s
-155222     0.1183   ms 1.3116   G Elements/s
-164467     0.1185   ms 1.3883   G Elements/s
-174263     0.1274   ms 1.3675   G Elements/s
-184642     0.1265   ms 1.4598   G Elements/s
-195639     0.1354   ms 1.4454   G Elements/s
-207292     0.1387   ms 1.4947   G Elements/s
-219638     0.1513   ms 1.4520   G Elements/s
-232720     0.1585   ms 1.4687   G Elements/s
-246581     0.1544   ms 1.5972   G Elements/s
-261267     0.1594   ms 1.6394   G Elements/s
-276828     0.1682   ms 1.6460   G Elements/s
-293316     0.1767   ms 1.6597   G Elements/s
-310786     0.1845   ms 1.6845   G Elements/s
-329297     0.1903   ms 1.7305   G Elements/s
-348910     0.1991   ms 1.7529   G Elements/s
-369691     0.2071   ms 1.7853   G Elements/s
-391710     0.2173   ms 1.8025   G Elements/s
-415040     0.2257   ms 1.8386   G Elements/s
-439760     0.2378   ms 1.8491   G Elements/s
-465952     0.2428   ms 1.9189   G Elements/s
-493704     0.2591   ms 1.9051   G Elements/s
-523109     0.2671   ms 1.9584   G Elements/s
-554266     0.2829   ms 1.9591   G Elements/s
-587278     0.2913   ms 2.0162   G Elements/s
-622257     0.3080   ms 2.0202   G Elements/s
-659318     0.3343   ms 1.9723   G Elements/s
-698587     0.3409   ms 2.0494   G Elements/s
-740195     0.3654   ms 2.0254   G Elements/s
-784282     0.3921   ms 2.0002   G Elements/s
-830994     0.4407   ms 1.8855   G Elements/s
-880488     0.4855   ms 1.8136   G Elements/s
-932930     0.5359   ms 1.7409   G Elements/s
-988495     0.5725   ms 1.7267   G Elements/s
-1047370    0.5387   ms 1.9443   G Elements/s
-1109752    0.5961   ms 1.8616   G Elements/s
-1175849    0.6531   ms 1.8005   G Elements/s
-1245883    0.6900   ms 1.8056   G Elements/s
-1320088    0.7068   ms 1.8676   G Elements/s
-1398713    0.7682   ms 1.8207   G Elements/s
-1482020    0.8575   ms 1.7282   G Elements/s
-1570290    0.9100   ms 1.7257   G Elements/s
-1663816    0.9817   ms 1.6948   G Elements/s
-1762914    1.0352   ms 1.7030   G Elements/s
-1867913    1.0921   ms 1.7103   G Elements/s
-1979166    1.1589   ms 1.7078   G Elements/s
-2097046    1.2218   ms 1.7164   G Elements/s
-2221946    1.2915   ms 1.7204   G Elements/s
-2354286    1.3650   ms 1.7248   G Elements/s
-2494508    1.4451   ms 1.7262   G Elements/s
-2643081    1.5278   ms 1.7300   G Elements/s
-2800503    1.6170   ms 1.7320   G Elements/s
-2967302    1.7122   ms 1.7330   G Elements/s
-3144035    1.8227   ms 1.7250   G Elements/s
-3331294    1.9141   ms 1.7404   G Elements/s
-3529707    2.0482   ms 1.7233   G Elements/s
-3739937    2.1429   ms 1.7452   G Elements/s
-3962688    2.2799   ms 1.7381   G Elements/s
-4198707    2.4028   ms 1.7474   G Elements/s
-4448782    2.5586   ms 1.7388   G Elements/s
-4713753    2.6933   ms 1.7502   G Elements/s
-4994505    2.8499   ms 1.7525   G Elements/s
-5291978    3.0301   ms 1.7465   G Elements/s
-5607169    3.1915   ms 1.7569   G Elements/s
-5941133    3.3741   ms 1.7608   G Elements/s
-6294988    3.5748   ms 1.7609   G Elements/s
-6669919    3.7842   ms 1.7626   G Elements/s
-7067181    4.0236   ms 1.7564   G Elements/s
-7488103    4.2543   ms 1.7601   G Elements/s
-7934096    4.4896   ms 1.7672   G Elements/s
-8406652    4.7539   ms 1.7684   G Elements/s
-8907354    5.0422   ms 1.7666   G Elements/s
-9437878    5.3413   ms 1.7670   G Elements/s
-10000000   5.6755   ms 1.7620   G Elements/s
+float64 CuPy
+100        0.7875   ms 0.0001   Elements/ns
+105        0.0598   ms 0.0018   Elements/ns
+112        0.0620   ms 0.0018   Elements/ns
+118        0.0600   ms 0.0020   Elements/ns
+126        0.0597   ms 0.0021   Elements/ns
+133        0.0600   ms 0.0022   Elements/ns
+141        0.0598   ms 0.0024   Elements/ns
+149        0.0598   ms 0.0025   Elements/ns
+158        0.0596   ms 0.0027   Elements/ns
+168        0.0596   ms 0.0028   Elements/ns
+178        0.0600   ms 0.0030   Elements/ns
+188        0.0598   ms 0.0031   Elements/ns
+200        0.0599   ms 0.0033   Elements/ns
+212        0.0599   ms 0.0035   Elements/ns
+224        0.0597   ms 0.0038   Elements/ns
+238        0.0594   ms 0.0040   Elements/ns
+252        0.0597   ms 0.0042   Elements/ns
+267        0.0604   ms 0.0044   Elements/ns
+283        0.0604   ms 0.0047   Elements/ns
+300        0.0604   ms 0.0050   Elements/ns
+318        0.0602   ms 0.0053   Elements/ns
+337        0.0603   ms 0.0056   Elements/ns
+357        0.0602   ms 0.0059   Elements/ns
+378        0.0603   ms 0.0063   Elements/ns
+400        0.0606   ms 0.0066   Elements/ns
+424        0.0602   ms 0.0070   Elements/ns
+450        0.0605   ms 0.0074   Elements/ns
+476        0.0605   ms 0.0079   Elements/ns
+505        0.0604   ms 0.0084   Elements/ns
+535        0.0633   ms 0.0085   Elements/ns
+567        0.0610   ms 0.0093   Elements/ns
+601        0.0606   ms 0.0099   Elements/ns
+636        0.0604   ms 0.0105   Elements/ns
+674        0.0610   ms 0.0110   Elements/ns
+714        0.0611   ms 0.0117   Elements/ns
+757        0.0606   ms 0.0125   Elements/ns
+802        0.0613   ms 0.0131   Elements/ns
+850        0.0608   ms 0.0140   Elements/ns
+901        0.0603   ms 0.0149   Elements/ns
+954        0.0608   ms 0.0157   Elements/ns
+1011       0.0609   ms 0.0166   Elements/ns
+1071       0.0602   ms 0.0178   Elements/ns
+1135       0.0606   ms 0.0187   Elements/ns
+1203       0.0602   ms 0.0200   Elements/ns
+1275       0.0604   ms 0.0211   Elements/ns
+1350       0.0608   ms 0.0222   Elements/ns
+1431       0.0604   ms 0.0237   Elements/ns
+1516       0.0612   ms 0.0248   Elements/ns
+1607       0.0605   ms 0.0266   Elements/ns
+1702       0.0610   ms 0.0279   Elements/ns
+1804       0.0600   ms 0.0301   Elements/ns
+1911       0.0608   ms 0.0314   Elements/ns
+2025       0.0606   ms 0.0334   Elements/ns
+2146       0.0599   ms 0.0358   Elements/ns
+2273       0.0610   ms 0.0373   Elements/ns
+2409       0.0603   ms 0.0400   Elements/ns
+2552       0.0608   ms 0.0420   Elements/ns
+2704       0.0605   ms 0.0447   Elements/ns
+2866       0.0605   ms 0.0474   Elements/ns
+3036       0.0606   ms 0.0501   Elements/ns
+3217       0.0601   ms 0.0535   Elements/ns
+3409       0.0610   ms 0.0559   Elements/ns
+3612       0.0607   ms 0.0595   Elements/ns
+3827       0.0603   ms 0.0634   Elements/ns
+4055       0.0609   ms 0.0665   Elements/ns
+4297       0.0610   ms 0.0704   Elements/ns
+4552       0.0604   ms 0.0753   Elements/ns
+4824       0.0607   ms 0.0795   Elements/ns
+5111       0.0602   ms 0.0850   Elements/ns
+5415       0.0607   ms 0.0893   Elements/ns
+5738       0.0604   ms 0.0949   Elements/ns
+6080       0.0603   ms 0.1008   Elements/ns
+6442       0.0606   ms 0.1063   Elements/ns
+6826       0.0607   ms 0.1125   Elements/ns
+7232       0.0610   ms 0.1186   Elements/ns
+7663       0.0869   ms 0.0882   Elements/ns
+8119       0.0608   ms 0.1335   Elements/ns
+8603       0.0603   ms 0.1426   Elements/ns
+9115       0.0616   ms 0.1480   Elements/ns
+9658       0.0612   ms 0.1578   Elements/ns
+10234      0.0611   ms 0.1676   Elements/ns
+10843      0.0613   ms 0.1768   Elements/ns
+11489      0.0620   ms 0.1853   Elements/ns
+12173      0.0609   ms 0.2000   Elements/ns
+12898      0.0615   ms 0.2096   Elements/ns
+13667      0.0616   ms 0.2217   Elements/ns
+14481      0.0622   ms 0.2330   Elements/ns
+15343      0.0716   ms 0.2144   Elements/ns
+16257      0.0619   ms 0.2624   Elements/ns
+17225      0.0642   ms 0.2685   Elements/ns
+18251      0.0703   ms 0.2595   Elements/ns
+19338      0.0704   ms 0.2746   Elements/ns
+20490      0.0720   ms 0.2847   Elements/ns
+21711      0.0706   ms 0.3074   Elements/ns
+23004      0.0705   ms 0.3263   Elements/ns
+24374      0.0703   ms 0.3467   Elements/ns
+25826      0.0716   ms 0.3609   Elements/ns
+27364      0.0787   ms 0.3479   Elements/ns
+28994      0.0792   ms 0.3662   Elements/ns
+30721      0.0792   ms 0.3881   Elements/ns
+32550      0.0792   ms 0.4110   Elements/ns
+34489      0.0805   ms 0.4283   Elements/ns
+36543      0.0868   ms 0.4209   Elements/ns
+38720      0.0887   ms 0.4366   Elements/ns
+41026      0.0892   ms 0.4601   Elements/ns
+43470      0.0874   ms 0.4972   Elements/ns
+46059      0.0973   ms 0.4735   Elements/ns
+48802      0.0957   ms 0.5100   Elements/ns
+51709      0.0959   ms 0.5391   Elements/ns
+54789      0.1038   ms 0.5279   Elements/ns
+58052      0.1039   ms 0.5588   Elements/ns
+61509      0.1140   ms 0.5395   Elements/ns
+65173      0.1121   ms 0.5814   Elements/ns
+69055      0.1126   ms 0.6131   Elements/ns
+73168      0.1292   ms 0.5662   Elements/ns
+77525      0.1286   ms 0.6028   Elements/ns
+82143      0.1283   ms 0.6404   Elements/ns
+87035      0.1358   ms 0.6407   Elements/ns
+92219      0.1286   ms 0.7172   Elements/ns
+97712      0.1379   ms 0.7086   Elements/ns
+103532     0.1365   ms 0.7585   Elements/ns
+109698     0.1458   ms 0.7522   Elements/ns
+116232     0.1534   ms 0.7577   Elements/ns
+123155     0.1588   ms 0.7756   Elements/ns
+130490     0.1610   ms 0.8107   Elements/ns
+138262     0.1704   ms 0.8116   Elements/ns
+146497     0.1619   ms 0.9050   Elements/ns
+155222     0.1695   ms 0.9160   Elements/ns
+164467     0.1735   ms 0.9480   Elements/ns
+174263     0.1817   ms 0.9589   Elements/ns
+184642     0.1869   ms 0.9882   Elements/ns
+195639     0.1928   ms 1.0150   Elements/ns
+207292     0.1941   ms 1.0680   Elements/ns
+219638     0.2031   ms 1.0814   Elements/ns
+232720     0.2114   ms 1.1009   Elements/ns
+246581     0.2195   ms 1.1236   Elements/ns
+261267     0.2292   ms 1.1399   Elements/ns
+276828     0.2364   ms 1.1711   Elements/ns
+293316     0.2443   ms 1.2008   Elements/ns
+310786     0.2604   ms 1.1933   Elements/ns
+329297     0.2691   ms 1.2239   Elements/ns
+348910     0.2857   ms 1.2214   Elements/ns
+369691     0.3016   ms 1.2258   Elements/ns
+391710     0.3160   ms 1.2397   Elements/ns
+415040     0.3426   ms 1.2113   Elements/ns
+439760     0.3758   ms 1.1701   Elements/ns
+465952     0.4102   ms 1.1358   Elements/ns
+493704     0.4336   ms 1.1386   Elements/ns
+523109     0.4657   ms 1.1234   Elements/ns
+554266     0.4994   ms 1.1098   Elements/ns
+587278     0.5412   ms 1.0852   Elements/ns
+622257     0.5779   ms 1.0768   Elements/ns
+659318     0.6182   ms 1.0664   Elements/ns
+698587     0.6712   ms 1.0408   Elements/ns
+740195     0.7218   ms 1.0255   Elements/ns
+784282     0.7725   ms 1.0152   Elements/ns
+830994     0.8266   ms 1.0054   Elements/ns
+880488     0.8800   ms 1.0006   Elements/ns
+932930     0.9327   ms 1.0002   Elements/ns
+988495     0.9799   ms 1.0088   Elements/ns
+1047370    1.0370   ms 1.0100   Elements/ns
+1109752    1.0881   ms 1.0199   Elements/ns
+1175849    1.1567   ms 1.0166   Elements/ns
+1245883    1.2180   ms 1.0229   Elements/ns
+1320088    1.2845   ms 1.0277   Elements/ns
+1398713    1.3593   ms 1.0290   Elements/ns
+1482020    1.4441   ms 1.0263   Elements/ns
+1570290    1.5213   ms 1.0322   Elements/ns
+1663816    1.6148   ms 1.0303   Elements/ns
+1762914    1.7012   ms 1.0363   Elements/ns
+1867913    1.7978   ms 1.0390   Elements/ns
+1979166    1.9035   ms 1.0398   Elements/ns
+2097046    2.0155   ms 1.0404   Elements/ns
+2221946    2.1277   ms 1.0443   Elements/ns
+2354286    2.2525   ms 1.0452   Elements/ns
+2494508    2.3833   ms 1.0467   Elements/ns
+2643081    2.5244   ms 1.0470   Elements/ns
+2800503    2.6687   ms 1.0494   Elements/ns
+2967302    2.8253   ms 1.0502   Elements/ns
+3144035    2.9895   ms 1.0517   Elements/ns
+3331294    3.1669   ms 1.0519   Elements/ns
+3529707    3.3544   ms 1.0523   Elements/ns
+3739937    3.5455   ms 1.0548   Elements/ns
+3962688    3.7601   ms 1.0539   Elements/ns
+4198707    3.9773   ms 1.0557   Elements/ns
+4448782    4.2170   ms 1.0550   Elements/ns
+4713753    4.4569   ms 1.0576   Elements/ns
+4994505    4.7184   ms 1.0585   Elements/ns
+5291978    4.9964   ms 1.0592   Elements/ns
+5607169    5.2936   ms 1.0592   Elements/ns
+5941133    5.6030   ms 1.0603   Elements/ns
+6294988    5.9401   ms 1.0597   Elements/ns
+6669919    6.2890   ms 1.0606   Elements/ns
+7067181    6.6564   ms 1.0617   Elements/ns
+7488103    7.0542   ms 1.0615   Elements/ns
+7934096    7.4634   ms 1.0631   Elements/ns
+8406652    7.9056   ms 1.0634   Elements/ns
+8907354    8.3808   ms 1.0628   Elements/ns
+9437878    8.8715   ms 1.0638   Elements/ns
+10000000   9.3977   ms 1.0641   Elements/ns
