@@ -60,4 +60,5 @@ jobs:
           else
           npm i
           fi
+          GIT_USER=actions
           npx docusaurus deploy
