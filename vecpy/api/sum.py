@@ -23,8 +23,8 @@ def sum(expr: vecpy.base.Expr, deviceID=0) -> float:
         >>> vx = vecpy.to_vecpy(x)
         >>> # Compute l2 norm
         >>> norm = vecpy.sum(vecpy.sqrt(vx ** 2))
-        >>> norm
-        10.0
+        >>> norm.get()
+        array([10.])
 
 
 
