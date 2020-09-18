@@ -19,12 +19,9 @@ init:
 
 benchmark:
 	$(py) benchmarks.py $(benchmark) $(lib) $(sizes) $(begin) $(end) $(trials) $(dtype) $(test) | tee $(outputdir)/$(lib).txt
-	
-test:
-	$(py) benchmarks.py $(benchmark) $(lib) $(sizes) $(begin) $(end) $(trials) $(dtype) 1
 
 experiment:
-	$(py) benchmarks.py $(benchmark) $(lib) $(sizes) $(begin) $(end) $(trials) $(dtype) 0
+	$(py) benchmarks.py $(benchmark) $(lib) $(sizes) $(begin) $(end) $(trials) $(dtype) 0 
 
 plot:
 	$(py) plot.py $(outputdir)/*.txt $(plotdir)/$(benchmark)_$(dtype).svg
