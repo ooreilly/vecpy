@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[34],{88:function(l){l.exports=JSON.parse('{"allTagsPath":"/vecpy/blog/tags","slug":"hello","name":"hello","count":2,"permalink":"/vecpy/blog/tags/hello"}')}}]);
