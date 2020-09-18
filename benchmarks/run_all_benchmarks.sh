@@ -1,3 +1,9 @@
+if [ $# != 1 ]; 
+then
+        echo "usage: ${0} <test> "
+        echo "test : Run in test mode (1 or 0). Otherwise, run in benchmark mode."
+        exit -1
+fi
 test=$1
 if [ ${test} == "1" ];
 then
