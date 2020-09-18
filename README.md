@@ -1,7 +1,7 @@
 # VecPy
 
 ![](https://img.shields.io/badge/state-experimental-orange)
-![documentation](https://github.com/ooreilly/vecpy/workflows/Deploy/badge.svg?branch=docs)
+![Documentation](https://github.com/ooreilly/vecpy/workflows/Documentation/badge.svg)
 
 VecPy is a lightweight GPU-accelerated Python package that lets you perform vector operations such as
 summation, and elementwise computation. VecPy can deliver great performance when it comes to working with large
