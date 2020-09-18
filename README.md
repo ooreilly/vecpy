@@ -1,7 +1,7 @@
 # VecPy
 
 ![](https://img.shields.io/badge/state-experimental-orange)
-![documentation](https://github.com/ooreilly/vecpy/workflows/documentation/badge.svg)
+![documentation](https://github.com/ooreilly/vecpy/workflows/Deploy/badge.svg?branch=docs)
 
 VecPy is a lightweight GPU-accelerated Python package that lets you perform vector operations such as
 summation, and elementwise computation. VecPy can deliver great performance when it comes to working with large
@@ -18,7 +18,7 @@ sets (millions of elements).
 
 ![](benchmarks/plots/sum_float32.svg)
 
-See the [benchmarks]() page for further details, and additional performance tests.
+See the [benchmarks](https://ooreilly.github.io/vecpy/docs/benchmarks/sum) page for further details, and additional performance tests.
 
 ## Usage
 Using VecPy is about as easy as using NumPy, except that you need to transfer results to and from
@@ -101,7 +101,7 @@ To use VecPy, you need:
 * pyCUDA, NumPy
 
 ## Documentation
-See the [documentation]() page for API reference documentation.
+See the [documentation](https://ooreilly.github.io/vecpy) page for API reference documentation.
  
 ## Contribute
 Contributions are welcome. 
