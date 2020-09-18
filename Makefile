@@ -1,9 +1,9 @@
-all: clone build copy-benchmarks# cleanup
+all: clone generate-docs copy-benchmarks
 
 clone:
 	git clone git@github.com:ooreilly/vecpy.git vecpy_tmp
 
-build:
+generate-docs:
 	bash docs.sh
 
 copy-benchmarks:
