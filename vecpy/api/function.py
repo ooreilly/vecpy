@@ -17,13 +17,14 @@ def function(name: str, expr: vecpy.base.Expr, *args) -> vecpy.base.Function:
         Apply the error function       
 
         >>> import numpy
-        >>> x = numpy.ones(10,)
+        >>> x = numpy.linspace(0, 1, 10)
         >>> vx = vecpy.to_vecpy(x)
         >>> vy = vecpy.zeros_like(x)
         >>> expr = vecpy.function("erf", vx)
-        >>> vecpy.elementwise(vy, expr)
-        >>> y = vecpy.to_numpy(vy)
-        >>> y
+        >>> vy = vecpy.elementwise(expr)
+        >>> vy.get()
+        array([0.        , 0.12486142, 0.24668378, 0.36264811, 0.47034933,
+        0.56794162, 0.65422141, 0.72864343, 0.79127487, 0.84270079])
 
     """
     return vecpy.base.Function(name, expr, *args)
