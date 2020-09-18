@@ -1,12 +1,11 @@
-name: Deploy
-
+name: Documentation
 on:
   push:
     branches: docs
 
 jobs:
   deploy:
-    name: Deploy
+    name: Documentation
     runs-on: ubuntu-latest
 
     steps:
