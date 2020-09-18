@@ -1,14 +1,15 @@
-root=../vecpy/api
-srcs:=$(wildcard $(root)/*.py)
-bins := $(srcs:$(root)/%.py=%)
-filt:=$(filter-out __init__, $(bins)) 
-out := $(filt:%=docs/%.md)    
+all: clone build copy-benchmarks# cleanup
 
-out : $(filt) 
+clone:
+	git clone git@github.com:ooreilly/vecpy.git vecpy_tmp
 
-% : docs/%.md 
-	mydocstring $(root)/$@.py $@ -m -T=template.md > $<
+build:
+	bash docs.sh
 
 copy-benchmarks:
-	cp ${VECPY}/benchmarks/plots/* static/img/benchmarks/
+	cp vecpy_tmp/benchmarks/plots/* static/img/benchmarks/
+
+cleanup:
+	rm -rf vecpy_tmp
+
 

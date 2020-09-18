@@ -1,5 +1,6 @@
 #!/bin/bash
-root=vecpy/api
+
+root=vecpy_tmp/vecpy/api
 for file in ${root}/*.py
 do
         file_name=$(basename $file)

@@ -5,7 +5,7 @@ sidebar_label: pow
 ---
 
 ```python
-def pow(expr: vecpy.base.Expr, exponent: float):
+def pow(expr: vecpy.base.Expr, exponent: vecpy.base.Expr):
 ```
 
 ---

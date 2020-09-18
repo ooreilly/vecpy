@@ -34,8 +34,8 @@ Compute the l2-norm, $\|x\| = \sqrt{\sum_i x_i^2}$
 >>> vx = vecpy.to_vecpy(x)
 >>> # Compute l2 norm
 >>> norm = vecpy.sum(vecpy.sqrt(vx ** 2))
->>> norm
-10.0
+>>> norm.get()
+array([10.])
  
 ```
 
